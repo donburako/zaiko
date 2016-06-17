@@ -13,6 +13,6 @@
     </head>
     <body>
         <h1>注文が完了しました</h1>
-        <p><a href="/ad0818/Main">在庫一覧へ</a></p>
+        <p><a href="/main">在庫一覧へ</a></p>
     </body>
 </html>

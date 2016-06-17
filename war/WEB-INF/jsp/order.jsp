@@ -41,10 +41,10 @@
             </c:forEach>
         </table>
         <p>合計金額　¥<%=session.getAttribute("sum") %></p>
-        <form action="/ad0818/OrderResult" method="get"><!--Order.javaのpost→OrderDone.javaに移動、DBに保存-->
+        <form action="/orderDone" method="get"><!--Order.javaのpost→OrderDone.javaに移動、DBに保存-->
             <input type="submit" value="注文する">
         </form>
-        <form action="/ad0818/OrderList" method="get"><!--OrderList.javaに戻る-->
+        <form action="/orderList" method="get"><!--OrderList.javaに戻る-->
             <input type="submit" value="キャンセル">
         </form>
 

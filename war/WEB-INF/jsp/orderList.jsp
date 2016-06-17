@@ -23,7 +23,7 @@
     <body>
         <% int count = 0;%>
         <h1>注文する商品</h1>
-        <form method="post" action="/ad0818/Order"> 
+        <form method="post" action="/order"> 
             <table>
                 <tr>
                     <th>商品ID</th>
@@ -46,6 +46,6 @@
 
             <input type="submit" value="注文">
         </form>
-        <a href ="/ad0818/Main">在庫一覧へ戻る</a>
+        <a href ="main">在庫一覧へ戻る</a>
     </body>
 </html>
