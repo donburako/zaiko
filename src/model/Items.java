@@ -7,14 +7,16 @@ package model;
 
 import java.io.Serializable;
 
-import java.net.URL;
-import java.util.Date;
+
 
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
+import java.net.URL;
+import java.util.Date;
 
+import javax.jdo.annotations.*;
 /**
  *
  * @author HikariHasegawa
@@ -57,7 +59,7 @@ import javax.jdo.annotations.*;
 public class Items {
     @PrimaryKey
     @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
-    private String itemId;
+    private Long itemId;
      
     @Persistent
     private String itemName;
@@ -67,48 +69,50 @@ public class Items {
      
     @Persistent
     private int num;
-     
+    
     @Persistent
     private Date datetime;
  
-    public  void LinkData(String itemId,String itemName,int price,int num) {
-       // super();       
+ 
+    public  void Items(String itemName,int price,int num,Date datetime) {
+    	//super();       
 
         this.itemId=itemId;
         this.itemName=itemName;
         this.price=price;
         this.num=num;
+        this.datetime = datetime;
     }
     
     
-    public String getItemId(){
+    public Long getItemId(){
         return itemId;
     }
+    
+    public void setId(Long itemId) {
+        this.itemId = itemId;
+    }
+    
     public String getItemName(){
         return itemName;
     }
-    public int getPrice(){
-        return price;
-    }
-    public int getNum(){
-        return num;
-    }
     
- 
- 
-    public void setId(String itemid) {
-        this.itemId = itemid;
-    }
- 
- 
     public void setItemName(String itemName) {
         this.itemName = itemName;
     }
  
+    public int getPrice(){
+        return price;
+    }
+    
     public void setPrice(int price) {
         this.price=price;
     }
  
+    public int getNum(){
+        return num;
+    }
+    
     public void setNum(int num) {
         this.num = num;
     }

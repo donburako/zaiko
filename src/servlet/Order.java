@@ -6,25 +6,29 @@
 package servlet;
 
 import java.io.*;
-import static java.lang.System.out;
-import java.sql.*;
 import java.util.*;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-//import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
+import javax.jdo.*;
+import javax.servlet.http.*;
 import model.Items;
 
 /**
  *
  * @author HikariHasegawa
  */
-//@WebServlet(name = "Order", urlPatterns = {"/Order"})
+@SuppressWarnings("serial")
 public class Order extends HttpServlet {
-
+	 public void doGet(HttpServletRequest req,
+	            HttpServletResponse resp)
+	            throws IOException {
+	        PersistenceManagerFactory factory = PMF.get();
+	        PersistenceManager manager = factory.getPersistenceManager();
+	        resp.setCharacterEncoding("UTF-8");
+	        resp.setContentType("text/html");
+	        req.setCharacterEncoding("utf-8");
+	        String param1 = req.getParameter("itemId");
+	        PrintWriter out = resp.getWriter();
+	        List<Items> Items = null;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -34,11 +38,6 @@ public class Order extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        request.setCharacterEncoding("utf-8");
-        response.setContentType("text/html;charset=UTF-8");
-        HttpSession session = request.getSession();
         List<Items> Items = (ArrayList) session.getAttribute("Items");
         int sum = 0;
 
