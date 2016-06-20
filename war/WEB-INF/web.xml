@@ -5,9 +5,6 @@ xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	
-	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
-	</welcome-file-list>
 	
 	<servlet>
 		<servlet-name>Order2</servlet-name>
@@ -26,6 +23,24 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
     	<servlet-name>add_items</servlet-name>
     	<url-pattern>/add</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+    	<servlet-name>edit_items</servlet-name>
+    	<servlet-class>servlet.EditItemsServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+    	<servlet-name>edit_items</servlet-name>
+    	<url-pattern>/edit</url-pattern>
+	</servlet-mapping>
 		
+		
+	<servlet>
+    	<servlet-name>del_items</servlet-name>
+    	<servlet-class>servlet.DelItemsServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+    	<servlet-name>del_items</servlet-name>
+    	<url-pattern>/del</url-pattern>
+	</servlet-mapping>
 	
 </web-app>

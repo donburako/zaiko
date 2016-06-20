@@ -74,10 +74,9 @@ public class Items {
     private Date datetime;
  
  
-    public  void Items(String itemName,int price,int num,Date datetime) {
+    public Items(String itemName,int price,int num,Date datetime) {
     	//super();       
 
-        this.itemId=itemId;
         this.itemName=itemName;
         this.price=price;
         this.num=num;

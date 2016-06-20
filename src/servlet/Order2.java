@@ -1,11 +1,13 @@
-package model;
-
+package servlet;
 
 import java.io.*;
 import java.util.*;
  
 import javax.jdo.*;
 import javax.servlet.http.*;
+
+import model.Items;
+import model.PMF;
  
 @SuppressWarnings("serial")
 public class Order2 extends HttpServlet {
@@ -19,24 +21,24 @@ public class Order2 extends HttpServlet {
         req.setCharacterEncoding("utf-8");
         String param1 = req.getParameter("itemId");
         PrintWriter out = resp.getWriter();
-        List<Items> Items = null;
+        List<Items> list = null;
         if (param1 == null || param1 ==""){
             String query = "select from " + Items.class.getName();
             try {
-                Items = (List<Items>)manager.newQuery(query).execute();
+                list = (List<Items>)manager.newQuery(query).execute();
             } catch(JDOObjectNotFoundException e){}
         } else {
             try {
                 Items data = (Items)manager.getObjectById(Items.class,Long.parseLong(param1));
-                Items = new ArrayList();
-                Items.add(data);
+                list = new ArrayList();
+                list.add(data);
             } catch(JDOObjectNotFoundException e){}
         }
         String res = "[";
-        if (Items != null){
-            for(Items data:Items){
+        if (list != null){
+            for(Items data:list){
                 res += "{itemId:" + data.getItemId() + ",itemName:'" + data.getItemName() + "',price:'" +
-                    data.getPrice() + ",Num,:'" + data.getNum()+  "',date:'" + data.getDatetime() + "'},";
+                    data.getPrice() + ",num,:'" + data.getNum()+  "',date:'" + data.getDatetime() + "'},";
             }
         }
         res += "]";

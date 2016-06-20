@@ -23,8 +23,8 @@ function getData(itemId){
         alert("HttpRequestが取得できませんでした。");
         return;
     }
-    var uri = "/zaiko";
-    if (itemId != null) uri = "/zaiko?id=" + itemId;
+    var uri = "/order2";
+    if (itemId != null) uri = "/order2?itemId=" + itemId;
     request.open("GET",uri,true);
     request.setRequestHeader("User-Agent","XMLHttpRequest");
     request.onreadystatechange = function(){

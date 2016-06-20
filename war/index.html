@@ -14,12 +14,13 @@
                 res += '<tr><td>' + json[0].itemName +'</td></tr>';
                 res += '<tr><td>' + json[0].price+'</td></tr>';
                 res += '<tr><td>' + json[0].num +'</td></tr>';
-            } else {
-                for (var i = 0;i < json.length;i++){
-                    res += '<tr><td><a href="javascript:return false;" onclick="getData(' + json[i].itemId +');">' + json[i].itemId + '</a></td>';
-                    res += '<td><a href="' + json[i].itemName + '">' + json[i].price + '</a></td>' +
-                    '<td><a href="edit.html?itemId=' + json[i].itemId + '">Edit</td>' +
-                    '<td><a href="del.html?itemId=' + json[i].itemId + '">Delete</td></tr>';
+         
+                } else {
+                    for (var i = 0;i < json.length;i++){
+                        res += '<tr><td><a href="javascript:return false;" onclick="getData(' + json[i].itemId +');">' + json[i].itemId + '</a></td>';
+                        res += '<td><a href="' + json[i].itemName + '">' + json[i].price + '</a></td>' +
+                        '<td><a href="edit.html?itemId=' + json[i].itemId + '">Edit</td>' +
+                        '<td><a href="del.html?itemId=' + json[i].itemId + '">Delete</td></tr>';
                 }
             }
             var obj = document.getElementById("datatable");
